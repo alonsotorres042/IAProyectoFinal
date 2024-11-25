@@ -114,7 +114,7 @@ public class Driving : StateWait
                     float distance = (transform.position - place.position).magnitude;
                     if (distance<4)
                     {
-
+                        //place = 
                     }
                     else
                     {
