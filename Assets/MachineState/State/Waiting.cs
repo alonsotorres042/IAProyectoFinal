@@ -2,42 +2,68 @@ using UnityEngine;
 
 public class Waiting : StateBase
 {
-    public float waitTime = 3f; // Tiempo en segundos que el auto esperará
-    private float timer;
+    private AutoSensor autoSensor; // Referencia al sensor de detección
+    private float waitTime = 2f; // Tiempo que el auto espera antes de reanudar
+    private float elapsedTime; // Tiempo acumulado desde que comenzó a esperar
+
+    void Awake()
+    {
+        this.LoadComponent();
+    }
+
+    public override void LoadComponent()
+    {
+        stateType = StateType.Waiting;
+        base.LoadComponent();
+    }
 
     public override void Enter()
     {
-        Debug.Log("Waiting Enter: Auto esperando.");
         base.Enter();
+        elapsedTime = 0f;
 
-        // Resetea el temporizador
-        timer = waitTime;
+        // Obtiene el sensor de detección
+        autoSensor = GetComponent<AutoSensor>();
+        if (autoSensor == null)
+        {
+            Debug.LogError("Waiting Enter: No se encontró el AutoSensor en el auto.");
+        }
 
-        // Detener el auto
+        // Detiene el auto
         SteeringBehavior steering = GetComponent<SteeringBehavior>();
         if (steering != null)
         {
             steering.Stop();
         }
+
+        Debug.Log("Waiting Enter: El auto está esperando.");
     }
 
     public override void Execute()
     {
         base.Execute();
 
-        // Cuenta hacia atrás
-        timer -= Time.deltaTime;
-
-        if (timer <= 0f)
+        if (autoSensor != null && autoSensor.IsObstacleDetected)
         {
-            Debug.Log("Waiting Execute: Tiempo de espera terminado, cambiando a Driving.");
-            _MachineState.ActiveState(StateType.Driving); // Cambia al estado Driving
+            // Resetea el temporizador si el obstáculo persiste
+            elapsedTime = 0f;
+        }
+        else
+        {
+            // Incrementa el tiempo acumulado
+            elapsedTime += Time.deltaTime;
+
+            // Si el tiempo de espera ha pasado, cambia al estado Driving
+            if (elapsedTime >= waitTime)
+            {
+                _MachineState.ActiveState(StateType.Driving);
+            }
         }
     }
 
     public override void Exit()
     {
-        Debug.Log("Waiting Exit: Saliendo del estado Waiting.");
         base.Exit();
+        Debug.Log("Waiting Exit: Salió del estado Waiting.");
     }
 }

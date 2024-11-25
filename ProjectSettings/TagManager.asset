@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - CinemachineTarget
+  - citizen
   layers:
   - Default
   - TransparentFX
