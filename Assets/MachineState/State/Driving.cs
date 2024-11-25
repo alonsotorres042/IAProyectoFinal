@@ -3,6 +3,10 @@ using UnityEngine;
 public class Driving : StateWait
 {
     private Node currentNode; // Nodo actual del auto
+    private AutoSensor autoSensor; // Sensor para detectar obstáculos
+    private bool isPaused = false; // Indica si el auto está detenido por un obstáculo
+    private float pauseDuration = 2f; // Tiempo que el auto esperará antes de reanudar
+    private float pauseTimer = 0f; // Temporizador para manejar la pausa
 
     void Awake()
     {
@@ -18,6 +22,13 @@ public class Driving : StateWait
     public override void Enter()
     {
         base.Enter();
+
+        // Obtiene el AutoSensor para detección de obstáculos
+        autoSensor = GetComponent<AutoSensor>();
+        if (autoSensor == null)
+        {
+            Debug.LogError("Driving Enter: No se encontró AutoSensor en el auto.");
+        }
 
         NodeManager manager = FindObjectOfType<NodeManager>();
         if (manager == null)
@@ -63,11 +74,34 @@ public class Driving : StateWait
         }
     }
 
-
     public override void Execute()
     {
         base.Execute();
 
+        // Si hay un obstáculo detectado, detener el movimiento
+        if (autoSensor != null && autoSensor.IsObstacleDetected)
+        {
+            if (!isPaused)
+            {
+                isPaused = true; // Indica que el auto está detenido
+                pauseTimer = 0f; // Resetea el temporizador
+                _SteeringBehavior.Stop(); // Detiene el auto
+                Debug.Log("Driving: Obstáculo detectado. Pausando el auto.");
+            }
+
+            // Incrementa el temporizador mientras el obstáculo esté presente
+            pauseTimer += Time.deltaTime;
+            if (pauseTimer >= pauseDuration)
+            {
+                isPaused = false; // Reanuda el movimiento después de esperar
+                Debug.Log("Driving: Tiempo de pausa completado. Reanudando movimiento.");
+            }
+
+            // Salir del método para no procesar el movimiento mientras está pausado
+            return;
+        }
+
+        // Lógica normal de movimiento si no hay obstáculos o ya pasó la pausa
         switch (stateNode)
         {
             case StateNode.MoveTo:
