@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b23f08d2ae4cba14087c1ed36193d82b, type: 3}
+  m_Name: CivilBTExternal
+  m_EditorClassIdentifier: 
+  mBehaviorSource:
+    behaviorName: Behavior
+    behaviorDescription: 
+    mTaskData:
+      types: []
+      parentIndex: 
+      startIndex: 
+      variableStartIndex: 
+      JSONSerialization: '{"EntryTask":{"Type":"BehaviorDesigner.Runtime.Tasks.EntryTask","NodeData":{"Offset":"(78,7)"},"ID":0,"Name":"Entry","Instant":true},"RootTask":{"Type":"BehaviorDesigner.Runtime.Tasks.Repeater","NodeData":{"Offset":"(-2,117)"},"ID":1,"Name":"Repeater","Instant":true,"SharedIntcount":{"Type":"BehaviorDesigner.Runtime.SharedInt","Name":null,"Int32mValue":0},"SharedBoolrepeatForever":{"Type":"BehaviorDesigner.Runtime.SharedBool","Name":null,"BooleanmValue":true},"SharedBoolendOnFailure":{"Type":"BehaviorDesigner.Runtime.SharedBool","Name":null,"BooleanmValue":false},"Children":[{"Type":"BehaviorDesigner.Runtime.Tasks.Selector","NodeData":{"Offset":"(-4.859604,100.904877)"},"ID":2,"Name":"Selector","Instant":true,"AbortTypeabortType":"None","Children":[{"Type":"BehaviorDesigner.Runtime.Tasks.Sequence","NodeData":{"Offset":"(-427.226379,221.823578)"},"ID":3,"Name":"Sequence","Instant":true,"AbortTypeabortType":"None","Children":[{"Type":"ActionNodeNotViewEnemy","NodeData":{"Offset":"(-214.024124,132.924576)"},"ID":4,"Name":"Action
+        Node Not View Enemy","Instant":true},{"Type":"ActionNodeNotViewItem","NodeData":{"Offset":"(-8.456719,132.405487)"},"ID":5,"Name":"Action
+        Node Not View Item","Instant":true},{"Type":"ActionWander","NodeData":{"Offset":"(162.353943,135.7667)"},"ID":6,"Name":"Action
+        Wander","Instant":true}]},{"Type":"BehaviorDesigner.Runtime.Tasks.Sequence","NodeData":{"Offset":"(-6.34298325,238.309265)"},"ID":7,"Name":"Sequence","Instant":true,"Disabled":true,"AbortTypeabortType":"None","Children":[{"Type":"ActionNodeViewEnemy","NodeData":{"Offset":"(-72.31195,115.935944)"},"ID":8,"Name":"Action
+        Node View Enemy","Instant":true},{"Type":"ActionEvade","NodeData":{"Offset":"(84.12422,115.311646)"},"ID":9,"Name":"Action
+        Evade","Instant":true}]},{"Type":"BehaviorDesigner.Runtime.Tasks.Sequence","NodeData":{"Offset":"(480.932861,233.607819)"},"ID":10,"Name":"Sequence","Instant":true,"AbortTypeabortType":"None","Children":[{"Type":"ActionNodeNotViewEnemy","NodeData":{"Offset":"(-197.402481,129.354858)"},"ID":11,"Name":"Action
+        Node Not View Enemy","Instant":true},{"Type":"ActionNodeViewItem","NodeData":{"Offset":"(1.72912788,142.219727)"},"ID":12,"Name":"Action
+        Node View Item","Instant":true},{"Type":"ActionFollowItem","NodeData":{"Offset":"(166.174072,144.2279)"},"ID":13,"Name":"Action
+        Follow Item","Instant":true}]}]}]}}'
+      fieldSerializationData:
+        typeName: []
+        fieldNameHash: 
+        startIndex: 
+        dataPosition: 
+        unityObjects: []
+        byteData: 
+        byteDataArray: 
+      Version: 1.6.8

@@ -1,0 +1,11 @@
+fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Scenes/Test.unity.meta
+guid: 25b03211f69ffc24c966d3aee2b88f06
+========
+guid: a18db12c8544f0449844a0280329e00c
+>>>>>>>> 0e21cee187c23b863f3ef8fe84b4668b66ead570:Assets/Scenes/TestScene.unity.meta
+DefaultImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
