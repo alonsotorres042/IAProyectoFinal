@@ -21,19 +21,19 @@ public class StateBase : MonoBehaviour
     // Método llamado al entrar en el estado
     public virtual void Enter()
     {
-        Debug.Log($"{stateType} Enter: Entrando en el estado {stateType}.");
+        //Debug.Log($"{stateType} Enter: Entrando en el estado {stateType}.");
     }
 
     // Método que se ejecuta en cada frame mientras el estado está activo
     public virtual void Execute()
     {
-        Debug.Log($"{stateType} Execute: Ejecutando estado {stateType}.");
+        //Debug.Log($"{stateType} Execute: Ejecutando estado {stateType}.");
     }
 
     // Método llamado al salir del estado
     public virtual void Exit()
     {
-        Debug.Log($"{stateType} Exit: Saliendo del estado {stateType}.");
+        //Debug.Log($"{stateType} Exit: Saliendo del estado {stateType}.");
     }
 
     // Obtiene un tipo de estado aleatorio que sea diferente del actual

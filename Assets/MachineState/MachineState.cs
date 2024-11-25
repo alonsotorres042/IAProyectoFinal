@@ -1,11 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static UnityEditor.VersionControl.Asset;
+//using static UnityEditor.VersionControl.Asset;
 
 // Cambia los valores del enum para reflejar los estados de los autos
 public enum StateType { Idle, Driving, Waiting }
-public enum StateNode { MoveTo, StartStay, Stay, Finish }
+public enum StateNode { MoveTo, StartStay, Stay, Finish,Obstacle }
 
 public class MachineState : MonoBehaviour
 {

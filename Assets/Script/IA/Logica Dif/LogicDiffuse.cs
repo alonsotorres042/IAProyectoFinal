@@ -5,6 +5,7 @@ using UnityEngine;
 [System.Serializable]
 public class FuzzyFunction
 {
+    public string Name;
     public AnimationCurve Functioncurves;
     public float F_y;
     public float SingletonDistance;
@@ -44,6 +45,7 @@ public class CalculateDiffuse
 }
 public class LogicDiffuse : MonoBehaviour
 {
-    public CalculateDiffuse SpeedDependDistanceEnemy = new CalculateDiffuse();
+    public CalculateDiffuse SpeedDependDistancePoint = new CalculateDiffuse();
+    public CalculateDiffuse SpeedDependDistanceObstacle = new CalculateDiffuse();
 
 }
