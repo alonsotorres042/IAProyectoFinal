@@ -827,7 +827,7 @@ MonoBehaviour:
   AimOffset: {fileID: 358193492437621508}
   HurtingMe: {fileID: 0}
   typeAgent: 0
-  typeAgentAllies: 00000000
+  typeAgentAllies: 05000000
   Importal: 1
   _UnitGame: 2
   IsCantView: 1
@@ -845,11 +845,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainDataView:
-    angle: 133
-    height: 5
-    meshColorOutSight: {r: 0.17243624, g: 1, b: 0, a: 0.16862746}
+    angle: 139
+    height: 2.43
+    meshColorOutSight: {r: 1, g: 0.65739954, b: 0, a: 0.16862746}
     mesh: {fileID: 0}
-    distance: 8
+    distance: 21.8
     Owner: {fileID: 4937075969967689604}
     IsDrawGizmo: 1
     Scanlayers:
@@ -859,7 +859,7 @@ MonoBehaviour:
       serializedVersion: 2
       m_Bits: 0
     Sight: 0
-    meshColorInSight: {r: 1, g: 0, b: 0, a: 0.105882354}
+    meshColorInSight: {r: 1, g: 0, b: 0.8284645, a: 0.105882354}
     InsideObject: 1
   RadioActionDataView:
     angle: 133
@@ -868,13 +868,13 @@ MonoBehaviour:
     mesh: {fileID: 0}
     distance: 4.54
     Owner: {fileID: 4937075969967689604}
-    IsDrawGizmo: 0
+    IsDrawGizmo: 1
     Scanlayers:
       serializedVersion: 2
-      m_Bits: 128
+      m_Bits: 4294967295
     occlusionlayers:
       serializedVersion: 2
-      m_Bits: 0
+      m_Bits: 4294967295
     Sight: 0
     meshColorInSight: {r: 0.09620863, g: 0.2911488, b: 0.8867924, a: 0.5176471}
     InsideObject: 0
@@ -905,7 +905,7 @@ MonoBehaviour:
   logTaskChanges: 0
   group: 0
   resetValuesOnRestart: 0
-  externalBehavior: {fileID: 11400000, guid: cbbea434309d74b48978a245fca6b008, type: 2}
+  externalBehavior: {fileID: 11400000, guid: 397a289f0aa431b41b478b2dfd790138, type: 2}
   mBehaviorSource:
     behaviorName: Behavior
     behaviorDescription: 
@@ -924,8 +924,8 @@ MonoBehaviour:
         byteData: 
         byteDataArray: 
       Version: 
-  gizmoViewMode: 0
-  showBehaviorDesignerGizmo: 0
+  gizmoViewMode: 2
+  showBehaviorDesignerGizmo: 1
 --- !u!195 &1269337921325329159
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -935,7 +935,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 8930778463762538417}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.57
+  m_Radius: 0.39
   m_Speed: 3.5
   m_Acceleration: 8
   avoidancePriority: 50

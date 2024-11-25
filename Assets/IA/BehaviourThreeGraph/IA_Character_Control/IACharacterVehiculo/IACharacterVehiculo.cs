@@ -26,6 +26,15 @@ public class IACharacterVehiculo : IACharacterControl
         rot.z = 0;
         transform.rotation = Quaternion.Lerp(transform.rotation, rot, Time.deltaTime * 50);
     }
+    public virtual void LookAllied()
+    {
+        if (AIEye.ViewAllie == null) return;
+        Vector3 dir = (AIEye.ViewAllie.transform.position - transform.position).normalized;
+        Quaternion rot = Quaternion.LookRotation(dir);
+        rot.x = 0;
+        rot.z = 0;
+        transform.rotation = Quaternion.Lerp(transform.rotation, rot, Time.deltaTime * 50);
+    }
     public virtual void LookPosition(Vector3 position)
     {
 
