@@ -90,43 +90,55 @@ public class Driving : StateWait
         switch (stateNode)
         {
             case StateNode.Obstacle:
+                // Si el auto está detenido por un obstáculo, ajusta la velocidad
+                Speed = _LogicDiffuse.SpeedDependDistanceObstacle.CalculateFuzzy(autoSensor.DistanceObstacle);
+                agent.speed = Speed;
 
-                
-                    Speed = _LogicDiffuse.SpeedDependDistanceObstacle.CalculateFuzzy(autoSensor.DistanceObstacle);
-                    agent.speed = Speed;
-                    agent.SetDestination(place.position);
-                
+                // Si ya no hay obstáculo, reanuda el movimiento normal
                 if (autoSensor != null && !autoSensor.IsObstacleDetected)
                 {
-
                     if (agent.isStopped)
                         agent.isStopped = false;
+
                     stateNode = StateNode.MoveTo;
                     Speed = SpeedMax;
                 }
-                    
                 break;
             case StateNode.MoveTo:
-                if (autoSensor != null && autoSensor.IsObstacleDetected)
-                    stateNode = StateNode.Obstacle;
-                else
+                // Verifica si el auto está cerca del nodo actual
+                if (IsNearTarget(place, 0.5f))
                 {
-                    float distance = (transform.position - place.position).magnitude;
-                    if (distance<4)
+                    // Selecciona el siguiente nodo conectado aleatorio
+                    Node nextNode = currentNode.GetRandomConnectedNode();
+                    if (nextNode != null)
                     {
-                        //place = 
+                        place = nextNode.transform; // Establece el siguiente nodo como destino
+                        currentNode = nextNode; // Actualiza el nodo actual
+
+                        //
+                        AutoController autoController = GetComponent<AutoController>();
+                        if (autoController != null && place != null)
+                        {
+                            autoController.SetTargetNode(place); // Sincroniza el nuevo nodo con el AutoController
+                        }
+                        //
+                        agent.SetDestination(place.position); // Actualiza el destino en NavMeshAgent
+                        Debug.Log($"Driving: Cambiando al siguiente nodo: {nextNode.name}");
                     }
                     else
                     {
-                        Speed = _LogicDiffuse.SpeedDependDistancePoint.CalculateFuzzy(distance);
-                        agent.speed = Speed;
-                        agent.SetDestination(place.position);
-
+                        Debug.LogWarning("Driving: No se encontró un nodo conectado.");
+                        stateNode = StateNode.Finish;
                     }
-                    
                 }
-                
-
+                else
+                {
+                    // Ajusta la velocidad según la distancia al destino
+                    float distance = Vector3.Distance(transform.position, place.position);
+                    Speed = _LogicDiffuse.SpeedDependDistancePoint.CalculateFuzzy(distance);
+                    agent.speed = Speed;
+                    agent.SetDestination(place.position); // Continúa moviéndose hacia el nodo actual
+                }
                 break;
 
             //case StateNode.StartStay:
