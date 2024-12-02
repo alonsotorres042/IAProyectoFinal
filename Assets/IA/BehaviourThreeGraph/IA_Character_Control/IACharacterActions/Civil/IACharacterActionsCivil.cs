@@ -19,10 +19,16 @@ public class IACharacterActionsCivil : IACharacterActions
     {
         if ((maskItem.value & (1 << other.gameObject.layer)) != 0)
         {
-
-            this.health.health += other.gameObject.GetComponent<HealthItem>().health;
-            other.gameObject.GetComponent<HealthItem>().health = 0;
-            Destroy(other.gameObject);
+            if (other.GetComponent<HealthItem>())
+            {
+                this.health.health += other.gameObject.GetComponent<HealthItem>().health;
+                other.gameObject.GetComponent<HealthItem>().health = 0;
+                Destroy(other.gameObject);
+            }
+            else if(other.GetComponent<FoodItem>())
+            {
+                Destroy(other.gameObject);
+            }
         }
     }
 }

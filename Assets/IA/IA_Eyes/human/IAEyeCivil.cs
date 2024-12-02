@@ -57,6 +57,16 @@ public class IAEyeCivil : IAEyeBase
 
                         }
                     }
+                    else if (Scanhealth is FoodItem)
+                    {
+                        float dist = (transform.position - Scanhealth.transform.position).magnitude;
+                        if (min_distItem > dist)
+                        {
+                            ViewItems = Scanhealth;
+                            min_dist = dist;
+
+                        }
+                    }
                     else
                     ExtractViewEnemyViewAllie(ref min_dist, Scanhealth);
                 }

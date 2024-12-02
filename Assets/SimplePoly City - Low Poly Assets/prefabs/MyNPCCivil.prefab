@@ -828,7 +828,7 @@ MonoBehaviour:
   HurtingMe: {fileID: 0}
   typeAgent: 0
   typeAgentAllies: 05000000
-  Importal: 1
+  Importal: 0
   _UnitGame: 2
   IsCantView: 1
   isHealthBelowHalf: 0
@@ -845,13 +845,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainDataView:
-    angle: 139
+    angle: 164
     height: 2.43
     meshColorOutSight: {r: 1, g: 0.65739954, b: 0, a: 0.16862746}
     mesh: {fileID: 0}
-    distance: 21.8
+    distance: 31.5
     Owner: {fileID: 4937075969967689604}
-    IsDrawGizmo: 1
+    IsDrawGizmo: 0
     Scanlayers:
       serializedVersion: 2
       m_Bits: 704
@@ -862,13 +862,13 @@ MonoBehaviour:
     meshColorInSight: {r: 1, g: 0, b: 0.8284645, a: 0.105882354}
     InsideObject: 1
   RadioActionDataView:
-    angle: 133
+    angle: 180
     height: 5
     meshColorOutSight: {r: 0.12834764, g: 1, b: 0, a: 0.4627451}
     mesh: {fileID: 0}
     distance: 4.54
     Owner: {fileID: 4937075969967689604}
-    IsDrawGizmo: 1
+    IsDrawGizmo: 0
     Scanlayers:
       serializedVersion: 2
       m_Bits: 4294967295
@@ -893,7 +893,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8930778463762538417}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8d7b55c7ecdb49a4a89fa5e6f9022861, type: 3}
   m_Name: 
@@ -936,7 +936,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.39
-  m_Speed: 3.5
+  m_Speed: 2.08
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
